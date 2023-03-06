@@ -238,3 +238,40 @@ Route::get('/mahasiswa',function()){
     $mahasiswa04 = "Deliana Putri"
     return view('kampus.mahasiswa')->(compact("mahasiswa01","mahasiswa02","mahasiswa03","mahasiswa04"));
 }
+
+
+//jobsheet3 Blade template Engine
+Route::get('/mahasiswa', function () {
+    $nama = 'Jonh Paijo Simatuphang';
+    $nilai = 75;
+    return view ('mahasiswa',compact('nama','nilai'));
+});
+
+
+//function htmlspecialchars()
+Route::get('/mahasiswa', function () {
+    $nama = '<u>Elon Musk Batubara</u>';
+    $nilai = 75;
+    return view ('mahasiswa',compact('nama','nilai'));
+});
+
+// kondisi if else
+Route::get('/mahasiswa', function () {
+    $nama = '<u>Elon Musk Batubara</u>';
+    $nilai = 75;
+    return view ('mahasiswa',compact('nama','nilai'));
+});
+
+//perulangan foreach1
+Route::get('/mahasiswa', function () {
+    $nama = 'Vladimir putin Harahap';
+    $nilai = [80,64,30,76,95];
+    return view ('mahasiswa',compact('nama','nilai'));
+});
+
+//perintah continue dan break
+Route::get('/mahasiswa', function () {
+    $nama = 'Tya Kirana Putri';
+    $nilai = [80,64,30,76,95];
+    return view ('mahasiswa',compact('nama','nilai'));
+});
