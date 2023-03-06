@@ -51,7 +51,7 @@ Route::get('/stok_barang/{jenis}/{merek}', function ($a, $b) {
 
 // 5. route dengan optional parameter
 Route::get('/stok_barang/{jenis?}/{merek?}', function ($a = 'smartphone', $b = 'samsung') {
-    return "Cek sisa stok untuk $a,$b";
+    return "Cek sisa stok untuk $a $b";
 });
 
 // 6. route parameter dengan regular expression
@@ -149,6 +149,7 @@ Route::get('/mahasiswa', function () {
     return view ('kampus/mahasiswa');
 });
 
+//mengirim data ke view
 // 4. Mengirim Data ke View Sebagai Argumen
 Route::get('/mahasiswa', function () {
     return view ('kampus.mahasiswa',["mahasiswa01"=>"Dudung"]);
@@ -173,3 +174,67 @@ Route::get('/mahasiswa', function () {
     ];
     return view('kampus.mahasiswa',$arrMahasiswa);
 });
+
+Route::get('/mahasiswa', function () {
+    $arrMahasiswa=["Muhammad Harist Almahdawi",
+        "Teuku Adrian Saputra",
+        "Zawil Abrar",
+        "Dinda",];
+    return view('kampus.mahasiswa',['mahasiswa'=>$arrMahasiswa]);
+});
+
+// mengirimkan data ke View menggunakan method with
+Route::get('/mahasiswa', function () {
+    return view ('kampus.mahasiswa')->with('mahasiswa01','Raisa Lestari');
+});
+
+// dengan banyak data dan menampilkan dengan looping
+Route::get('/mahasiswa', function () {
+    $arrMahasiswa= ['Boccah','Raisa Lestari','Slugger','Stinger'];
+    return view('kampus.mahasiswa')->with('mahasiswa',$arrMahasiswa);
+});
+
+//jika ingin mengirimkan banyak variabel , method view() bisa dipanggil beberapa kali dengan method 
+//chaining(disambung) satu sama lain
+Route::get('/mahasiswa', function () {
+    return view('kampus.mahasiswa')->with('mahasiswa01','Doni Sadikin')
+    ->with('mahasiswa02','Sahara')->with('mahasiswa03','Deliana Putri');
+});
+
+// agar lebih rapi bisa begini
+Route::get('/mahasiswa', function () {
+    return view('kampus.mahasiswa')
+    ->with('mahasiswa01','Doni Sadikin')
+    ->with('mahasiswa02','Sahara')
+    ->with('mahasiswa03','Deliana Putri');
+});
+
+// cara penulisan lain dari method with dengan menyambungkan lansung setiap nama
+Route::get('/mahasiswa', function () {
+    return view('kampus.mahasiswa')->withmahasiswa01('Doni Sadikin');
+});
+// teknik chaining bersambung
+Route::get('/mahasiswa', function () {
+    return view('kampus.mahasiswa')
+    ->withmahasiswa01('kumaha atuh')
+    ->withmahasiswa02('Budy')
+    ->withmahasiswa03('Donald');
+});
+
+//5. mengenal Function Compact()
+Route::get('/mahasiswa', function () {
+    $mahasiswa01 = "Indra Kenz",
+    $mahasiswa02 = "Doni Salmanan",
+    $mahasiswa03 = "Ulfi Riskia",
+    $mahasiswa04 = "Deliana Putri"
+    return view('kampus.mahasiswa',compact("mahasiswa01","mahasiswa02","mahasiswa03","mahasiswa04"));
+});
+
+// atau mengunakan method with, bisa dituliskan sebagai berikut
+Route::get('/mahasiswa',function()){
+    $mahasiswa01 = "Indra Kenz",
+    $mahasiswa02 = "Doni Salmanan",
+    $mahasiswa03 = "Ulfi Riskia",
+    $mahasiswa04 = "Deliana Putri"
+    return view('kampus.mahasiswa')->(compact("mahasiswa01","mahasiswa02","mahasiswa03","mahasiswa04"));
+}
