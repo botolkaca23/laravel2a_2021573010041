@@ -103,26 +103,26 @@ Route::fallback( function () {
 });
 
 // 10. route priority
-Route::get('/buku/1', function () {
-    return "Buku ke-1";
-});
-Route::get('/buku/1', function () {
-    return "Buku saya ke-1";
-});
-Route::get('/buku/1', function () {
-    return "Buku kita ke-1";
-});
+// Route::get('/buku/1', function () {
+//     return "Buku ke-1";
+// });
+// Route::get('/buku/1', function () {
+//     return "Buku saya ke-1";
+// });
+// Route::get('/buku/1', function () {
+//     return "Buku kita ke-1";
+// });
 
 
-Route::get('/buku/1', function ($a) {
-    return "Buku ke-$a";
-});
-Route::get('/buku/1', function ($b) {
-    return "Buku saya ke-$b";
-});
-Route::get('/buku/1', function ($c) {
-    return "Buku kita ke-$c";
-});
+// Route::get('/buku/1', function ($a) {
+//     return "Buku ke-$a";
+// });
+// Route::get('/buku/1', function ($b) {
+//     return "Buku saya ke-$b";
+// });
+// Route::get('/buku/1', function ($c) {
+//     return "Buku kita ke-$c";
+// });
 
 Route::get('/mahasiswa/andi', function () {
     echo "Halaman mahasiswa andi";
@@ -136,9 +136,9 @@ Route::get('/home', function () {
     return view ('halaman_home');
 });
 
-Route::get('/mahasiswa', function () {
-    return View::make('mahasiswa');
-});
+// Route::get('/mahasiswa', function () {
+//     return View::make('mahasiswa');
+// });
 
 // 2. Membuat Struktur Folder view
 Route::get('/mahasiswa', function () {
@@ -221,23 +221,23 @@ Route::get('/mahasiswa', function () {
     ->withmahasiswa03('Donald');
 });
 
-//5. mengenal Function Compact()
-Route::get('/mahasiswa', function () {
-    $mahasiswa01 = "Indra Kenz",
-    $mahasiswa02 = "Doni Salmanan",
-    $mahasiswa03 = "Ulfi Riskia",
-    $mahasiswa04 = "Deliana Putri"
-    return view('kampus.mahasiswa',compact("mahasiswa01","mahasiswa02","mahasiswa03","mahasiswa04"));
-});
+// //5. mengenal Function Compact()
+// Route::get('/mahasiswa', function () {
+//     $mahasiswa01 = "Indra Kenz",
+//     $mahasiswa02 = "Doni Salmanan",
+//     $mahasiswa03 = "Ulfi Riskia",
+//     $mahasiswa04 = "Deliana Putri"
+//     return view('kampus.mahasiswa',compact("mahasiswa01","mahasiswa02","mahasiswa03","mahasiswa04"));
+// });
 
-// atau mengunakan method with, bisa dituliskan sebagai berikut
-Route::get('/mahasiswa',function()){
-    $mahasiswa01 = "Indra Kenz",
-    $mahasiswa02 = "Doni Salmanan",
-    $mahasiswa03 = "Ulfi Riskia",
-    $mahasiswa04 = "Deliana Putri"
-    return view('kampus.mahasiswa')->(compact("mahasiswa01","mahasiswa02","mahasiswa03","mahasiswa04"));
-}
+// // atau mengunakan method with, bisa dituliskan sebagai berikut
+// Route::get('/mahasiswa',function()){
+//     $mahasiswa01 = "Indra Kenz",
+//     $mahasiswa02 = "Doni Salmanan",
+//     $mahasiswa03 = "Ulfi Riskia",
+//     $mahasiswa04 = "Deliana Putri"
+//     return view('kampus.mahasiswa')->(compact("mahasiswa01","mahasiswa02","mahasiswa03","mahasiswa04"));
+// }
 
 
 //jobsheet3 Blade template Engine
