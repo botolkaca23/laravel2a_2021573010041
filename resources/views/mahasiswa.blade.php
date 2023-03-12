@@ -154,6 +154,7 @@
 </body>
 
 </html>
+<!--Praktikum3: Blade-->
 
 <!--tanpa kode blade-->
 <!DOCTYPE html>
@@ -242,7 +243,11 @@
         <br>
         @if (($nilai>=0) and ($nilai<50))
         <div class="alert alert-danger d-inline-block">
-            Selamat,anda Lulus
+            Maaf, anda tidak lulus
+        </div>
+        @elseif(($nilai>=50) and ($nilai<=100))
+        <div class= "alert alert-success d-inline-block">
+            Selamat, anda lulus
         </div>
         @endif
     </div>
